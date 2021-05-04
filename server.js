@@ -1,11 +1,17 @@
 'use strict'
 
 const express = require('express');
+const fs = require('fs');
 const { sso } = require('node-expose-sspi');
 
 const app = express();
-const server = require('http').createServer(app);
-const port = process.env.PORT || 3000;
+//const server = require('http').createServer(app);
+const server = require('https').createServer({
+    key: fs.readFileSync('./certs/server.key', 'utf8'),
+    cert: fs.readFileSync('./certs/server-b64.cer', 'utf8'),
+    ca: fs.readFileSync('./certs/ca.cer')
+}, app);
+const port = process.env.PORT || 443;
 
 app.use(sso.auth());
 
