@@ -1,6 +1,5 @@
 # Project exclude paths
 /node_modules/
 .idea/
-certs/request.csr
-certs/server.key
-certs/server-b64.p7b
+certs/
+
