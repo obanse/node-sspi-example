@@ -7,9 +7,9 @@ const { sso } = require('node-expose-sspi');
 const app = express();
 //const server = require('http').createServer(app);
 const server = require('https').createServer({
-    key: fs.readFileSync('./certs/node-server.key', 'utf8'),
-    cert: fs.readFileSync('./certs/node-server.cer', 'utf8'),
-    ca: fs.readFileSync('./certs/ca.cer')
+    key: fs.readFileSync('./cert/node-server.key', 'utf8'),
+    cert: fs.readFileSync('./cert/node-server.cer', 'utf8'),
+    ca: fs.readFileSync('./cert/ca.cer')
 }, app);
 const port = process.env.PORT || 443;
 
